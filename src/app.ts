@@ -1,6 +1,7 @@
 import express, {Application, Request, Response} from "express" ; 
 import carRoutes from './routes/cars';
 import { env } from "./config/env";
+import { connectDB } from "./config/database";
 
 const PORT = env.port
 
@@ -67,17 +68,16 @@ app.get("/ping", async (_req : Request, res: Response) => { res.json({
 
 }); 
 
-app.listen(PORT, () => { 
+const startServer = async () => {
+  await connectDB();
 
-    console.log("Server is running on port", PORT); 
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
 
-    }); 
+startServer();
 
-    app.use((req, _res, next) => {   
 
-    console.log(`${req.method} ${req.originalUrl}`); 
 
-    next(); 
-
-}); 
 
