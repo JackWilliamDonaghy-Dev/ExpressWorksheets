@@ -14,3 +14,4 @@ const carSchema = new Schema<ICar>(
 );
 
 export const CarModel = model<ICar>('Car', carSchema);
+

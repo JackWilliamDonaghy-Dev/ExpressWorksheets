@@ -9,10 +9,10 @@ const PORT = env.port
 
 const app: Application = express(); 
 
+app.use(express.json()); 
 
 app.use('/api/v1/cars', carRoutes); 
 
-app.use(express.json()); 
 
 app.use((req, _res, next) => {   
 
