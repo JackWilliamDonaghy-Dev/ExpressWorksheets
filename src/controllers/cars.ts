@@ -66,7 +66,7 @@ export class CarController {
 
             res.status(200).json({
                 success: true,
-                data: `this is just dummy for now a response to the delete car by id request with car id ${_req.params.id}`
+                data: `car deleted with id ${_req.params.id}`
             });
         }
         catch(error){
