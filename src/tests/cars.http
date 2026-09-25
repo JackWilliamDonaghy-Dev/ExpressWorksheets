@@ -29,3 +29,23 @@ content-type: application/json
   "make": "BMW",
   "model": "Corolla"
 }
+
+//Worksheet 4 part 2
+
+### 
+# @name postACar
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "make2",
+  "model": "model2"
+}
+
+###
+@newCar = {{postACar.response.body._id}}
+
+###
+GET  {{endpoint}}/{{newCar}} HTTP/3.0
+content-type: application/json
