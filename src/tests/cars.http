@@ -56,3 +56,59 @@ GET http://localhost:400/api/v1/cars HTTP/1.1
 content-type: application/json
 x-api-key: blahblah
 
+### new year field test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 2020
+}
+
+### below minimum year field test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 1940
+}
+
+
+
+
+
+### extra field error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 2020,
+  "color": "blue"
+}
+
+### missing field error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota"
+}
+
+### incorrect json error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+}

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'; 
 import { CarService } from '../services/car';
+import { createCarZSchema } from '../models/cars';
 
 const carService = new CarService();
 export class CarController { 
@@ -31,6 +32,7 @@ export class CarController {
 
     createCar = async (req: Request, res: Response): Promise<void> => {
     try {
+        
         const newCar = await carService.createCar(req.body);
         res.status(201).json(newCar);
     } catch (error) {
@@ -74,3 +76,4 @@ export class CarController {
         }
     };
 }
+
