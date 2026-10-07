@@ -22,13 +22,14 @@ content-type: application/json
 DELETE {{endpoint}}/6ab16c2ab3335595bc8ee438 HTTP/3.0
 content-type: application/json
 
-###
-PUT {{endpoint}}/6ab16c2ab3335595bc8ee438 HTTP/3.0
+### update a car with lower minimum year value
+PUT {{endpoint}}/6aba96a8e0a7c8fff730cf82 HTTP/3.0
 content-type: application/json
 
 {
   "make": "BMW",
-  "model": "Corolla"
+  "model": "Corolla",
+  "year": 1790
 }
 
 //Worksheet 4 part 2
@@ -56,3 +57,59 @@ GET http://localhost:400/api/v1/cars HTTP/1.1
 content-type: application/json
 x-api-key: blahblah
 
+### new year field test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 2020
+}
+
+### below minimum year field test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 1940
+}
+
+
+
+
+
+### extra field error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "year": 2020,
+  "color": "blue"
+}
+
+### missing field error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota"
+}
+
+### incorrect json error test
+
+POST {{endpoint}} HTTP/1.1
+content-type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Corolla",
+}
