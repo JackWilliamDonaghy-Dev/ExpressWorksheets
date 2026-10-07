@@ -25,12 +25,8 @@ app.use('/api/v1/cars', carRoutes);
 
  
 
-app.get("/ping", async (_req : Request, res: Response) => { res.json({ 
-
-    message: "I still don't have access to moodle ;( and this is the other run one"
-
-    }); 
-
+app.get("/ping", (_req: Request, res: Response) => {
+    res.json({ message: "hello from Una" });
 }); 
 
  app.get('/bananas', async (_req : Request, res: Response) => { 

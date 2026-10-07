@@ -113,3 +113,6 @@ content-type: application/json
   "make": "Toyota",
   "model": "Corolla",
 }
+
+###
+GET http://localhost:400/ping HTTP/1.1
